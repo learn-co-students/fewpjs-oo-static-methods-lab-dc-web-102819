@@ -13,11 +13,9 @@ class Formatter {
     const uncapitalizedWords = ['a', 'an', 'but', 'of', 'and', 'for', 'by', 'at', 'the', 'from']
     let words = string.split(' ')
     return words.map(function(word, index) {
-      if (index === 0) {
-        return Formatter.capitalize(word)
-      } else if (!uncapitalizedWords.find(function(uncappedWord) {
-          return uncappedWord === word
-      })) {
+      if (index === 0 || !uncapitalizedWords.find(function(uncappedWord) {
+        return uncappedWord === word
+    })) {
         return Formatter.capitalize(word)
       } else {
         return word
